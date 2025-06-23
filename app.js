@@ -31,7 +31,7 @@ main().then(() => {
 });
 
 async function main() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
+    await mongoose.connect(dbUrl);
 };
 
 
@@ -43,7 +43,7 @@ app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
 
 const store = MongoStore.create({
-    mongoUrl: "mongodb://127.0.0.1:27017/wanderlust",
+    mongoUrl: dbUrl,
     crypto: {
         secret: process.env.SECRET,
     },
