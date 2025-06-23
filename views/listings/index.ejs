@@ -1,46 +1,4 @@
 <% layout("layouts/boilerplate") %>
-    <style>
-        #filters {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .filter {
-            text-align: center;
-            margin-right: 2rem;
-            margin-top: 2rem;
-            opacity: 0.7;
-        }
-
-        .filter:hover {
-            opacity: 1;
-            cursor: pointer;
-        }
-
-        .filter p {
-            font-size: 0.8rem;
-        }
-
-        .tax-info {
-            display: none;
-        }
-
-        .tax-toggle {
-            border: 1px solid black;
-            border-radius: 1rem;
-            height: 3.25rem;
-            padding: 1rem;
-            display: flex;
-            align-items: center;
-            margin-left: 2rem;
-        }
-
-        .filter a {
-            color: inherit;
-            text-decoration: none;
-        }
-    </style>
     <div id="filters">
         <div class="filter">
             <div><i class="fa-solid fa-fire"></i></div>
@@ -107,7 +65,7 @@
             </a>
         </div>
 
-        <div class="tax-toggle">
+        <div class="tax-toggle ">
             <div class="form-check form-switch ">
                 <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
@@ -133,18 +91,3 @@
             </a>
             <% } %>
     </div>
-
-
-    <script>
-        let taxSwitch = document.getElementById("flexSwitchCheckDefault");
-        taxSwitch.addEventListener("click", () => {
-            let taxInfo = document.getElementsByClassName("tax-info"); //taxInfo is created for all listings not for one
-            for (info of taxInfo) {
-                if (info.style.display != "inline") {
-                    info.style.display = "inline";
-                } else {
-                    info.style.display = "none";
-                }
-            }
-        })
-    </script>

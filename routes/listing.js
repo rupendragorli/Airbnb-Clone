@@ -32,6 +32,8 @@ router
 //get route : to render update form
 router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.renderEditForm));
 
-router.get("/filters/:category",wrapAsync(listingController.filterListings))
+router.get("/filters/:category",wrapAsync(listingController.filterListings));
+
+router.post("/searchListing", wrapAsync(listingController.searchListing));
 
 module.exports = router;

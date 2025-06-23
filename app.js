@@ -31,7 +31,7 @@ main().then(() => {
 });
 
 async function main() {
-    await mongoose.connect(dbUrl);
+    await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
 };
 
 
@@ -43,7 +43,7 @@ app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
 
 const store = MongoStore.create({
-    mongoUrl: dbUrl,
+    mongoUrl: "mongodb://127.0.0.1:27017/wanderlust",
     crypto: {
         secret: process.env.SECRET,
     },
@@ -96,7 +96,6 @@ app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 //User Routes
 app.use("/",userRouter);
-
 
 
 //when any api above was matched this will get executed

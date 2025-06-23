@@ -91,4 +91,14 @@ module.exports.filterListings = async (req,res) => {
     const { category } = req.params;
     const allListings = await Listing.find({category: category});
     res.render("listings/index.ejs", { allListings });
-}
+};
+
+module.exports.searchListing = async (req,res) => {
+    const listingTitle = req.body.listingTitle;
+    const allListings = await Listing.find({title: listingTitle});
+    if(allListings.length == 0){
+        req.flash("error", "Liisting not found!");
+        return res.redirect("/listings");
+    }
+    res.render("listings/index.ejs", { allListings });
+};

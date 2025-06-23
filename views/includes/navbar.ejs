@@ -1,28 +1,4 @@
-<style>
-    .search-btn {
-        background-color: #fe424d;
-        color: #ffffff;
-        border-radius: 25px;
-        padding: 0 1rem;
-    }
-
-    .search-btn:hover {
-        background-color: #fe424d;
-        color: #ffffff;
-    }
-
-    .search-btn i {
-        display: inline;
-        margin-right: 0.5rem;
-    }
-
-    .search-input {
-        border-radius: 25px;
-        padding: 0.5rem 3rem;
-    }
-</style>
-
-<nav class="navbar navbar-expand-md navbar-light bg-light border-bottom sticky-top">
+<!-- <nav class="navbar navbar-expand-md navbar-nav-scroll navbar-light bg-light border-bottom sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
@@ -50,6 +26,46 @@
                         <% if(currUser) { %>
                             <a class="nav-link" href="/logout"><b>Logout</b></a>
                             <% } %>
+            </div>
+        </div>
+    </div>
+</nav> -->
+
+
+<nav class="navbar navbar-expand-md navbar-light bg-light border-bottom sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
+        <button class="navbar-toggler" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <!-- Links -->
+            <div class="navbar-nav">
+                <a class="nav-link" href="/listings">Explore</a>
+            </div>
+
+            <!-- Search Bar -->
+            <form class="d-flex my-2 my-md-0 ms-auto" method="post" action=";listings/searchListing">
+                <input class="form-control me-2 search-input" 
+                       type="search" placeholder="Search destinations" name="listingTitle">
+                <button class="btn search-btn" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>Search
+                </button>
+            </form>
+
+            <!-- User Links -->
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/listings/new">Airbnb your home</a>
+                <% if(!currUser) { %>
+                    <a class="nav-link" href="/login"><b>Login</b></a>
+                <% } %>
+                <% if(currUser) { %>
+                    <a class="nav-link" href="/logout"><b>Logout</b></a>
+                <% } %>
             </div>
         </div>
     </div>
